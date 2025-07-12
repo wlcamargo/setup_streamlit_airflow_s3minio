@@ -1,0 +1,6 @@
+{
+  "aws_access_key_id": "chapolin",
+  "aws_secret_access_key": "mudar@123",
+  "host": "http://host.docker.internal:9000",
+  "region_name": "us-east-1"
+}

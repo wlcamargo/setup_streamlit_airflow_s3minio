@@ -1,0 +1,8 @@
+#Project
+venv/
+applications/__pycache__/*
+
+#Airflow
+applications/airflow/dags/__pycache__/*
+applications/airflow/dags/__pycache__/
+
