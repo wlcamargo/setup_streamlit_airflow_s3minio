@@ -31,6 +31,8 @@ https://www.youtube.com/watch?v=pRFzDVn40rw&list=PLbPvnlmz6e_L_3Zw_fGtMcMY0eAOZn
 Clone the repository:
 ```
 git clone https://github.com/wlcamargo/setup_streamlit_airflow_s3minio.git
+```
+```
 cd setup_streamlit_airflow_s3minio
 ```
 
