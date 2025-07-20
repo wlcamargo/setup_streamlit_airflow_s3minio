@@ -8,9 +8,11 @@ Link:
 ![Architecture Diagram](assets/architecture.png)
 
 ## Prerequisites
+- Git
 - Docker
-- Python 3.7+ (recommended)
 - Docker Compose
+- Python 3.7+ (recommended)
+
 
 ## Tools Overview
 ### Apache Airflow
