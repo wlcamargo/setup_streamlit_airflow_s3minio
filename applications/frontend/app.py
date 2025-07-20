@@ -11,6 +11,9 @@ import os
 st.set_page_config(page_title="Setup Airflow S3/Minio", layout="wide")
 st.title("Setup Airflow S3/Minio")
 
+
+
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -20,11 +23,11 @@ s3_access_key = os.getenv("S3_ACCESS_KEY")
 s3_secret_key = os.getenv("S3_SECRET_KEY")
 bucket_name = os.getenv("BUCKET_NAME")
 
+
 airflow_api_url = os.getenv("AIRFLOW_API_URL")
 dag_id = os.getenv("DAG_ID")
-username = os.getenv("USERNAME")
-password = os.getenv("PASSWORD")
-
+username = os.getenv("USERNAME_AIRFLOW")
+password = os.getenv("PASSWORD_AIRFLOW")
 
 # Initialize S3 client for MinIO
 s3 = boto3.client(
@@ -38,8 +41,12 @@ s3 = boto3.client(
 
 st.subheader("▶️ Run Process")
 
-if st.button("Execute Process"):
-    # Generate a unique dag_run_id with timestamp
+if "process_executed" not in st.session_state:
+    st.session_state.process_executed = False
+
+if st.button("Execute Process") and not st.session_state.process_executed:
+    st.session_state.process_executed = True  # marca que executou
+
     dag_run_id = f"manual__{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 
     response = requests.post(
@@ -53,7 +60,7 @@ if st.button("Execute Process"):
     else:
         st.error(f"❌ Failed to trigger DAG: {response.status_code} - {response.text}")
 
-
+        
 st.subheader("📤 Upload File to S3")
 
 uploaded_file = st.file_uploader("Choose a file to upload", type=None)
@@ -69,7 +76,7 @@ if uploaded_file is not None:
                 Bucket=bucket_name,
                 Key=uploaded_file.name
             )
-            st.success(f"✅ File `{uploaded_file.name}` successfully uploaded to bucket `{BUCKET_NAME}`.")
+            st.success(f"✅ File `{uploaded_file.name}` successfully uploaded to bucket.")
         except Exception as e:
             st.error(f"❌ Error while uploading the file: {e}")
             
