@@ -2,7 +2,7 @@
 This project uses Streamlit as a frontend interface to trigger Apache Airflow DAGs and browse files stored in an S3-compatible bucket, using MinIO as the storage backend.
 
 ## 📺 YouTube Video
-Link: 
+Link: https://www.youtube.com/watch?v=kiq0tzC1Q6Y
 
 ## Architecture
 ![Architecture Diagram](assets/architecture.png)
