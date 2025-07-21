@@ -119,6 +119,22 @@ App layout:
 
 ![image](assets/front-end.png)
 
+## Connection Airflow S3
+
+⚠️ This step is important to integrate Airflow with S3.
+
+Open the Airflow interface, click on Admin, then Connections, and select Amazon Web Services.
+
+Add your secrets and the configuration below:
+```
+{
+  "aws_access_key_id": "chapolin",
+  "aws_secret_access_key": "mudar@123",
+  "host": "http://host.docker.internal:9000",
+  "region_name": "us-east-1"
+}
+```
+
 ## Conclusion
 If you reached this point, congratulations! You now have an example project to run Airflow processes and view files in an S3 bucket using Streamlit as the frontend.
 
